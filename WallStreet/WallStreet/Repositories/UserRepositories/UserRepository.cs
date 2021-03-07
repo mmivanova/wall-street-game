@@ -1,41 +1,106 @@
 ﻿using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 using WallStreet.Models;
-using WallStreet.Services.AccountServices;
 
 namespace WallStreet.Repositories.UserRepositories
 {
     class UserRepository : IUserRepository
     {
-        private readonly IAccountService accountService = new AccountService();
-        private static readonly List<User> users = new List<User>();
+        private Database.DbContext _context = new Database.DbContext();
 
-        public UserRepository()
+        public List<User> GetAll()
         {
-            users.Add(new User("Ivan", "Petrov", "ipetrov@gmail.com", accountService.GetAccount("Ivancho", "ivan123")));
-            users.Add(new User("Maria", "Kotseva", "maria_k89@gmail.com", accountService.GetAccount("MariaK", "mimi123")));
-            users.Add(new User("Ivan", "Petrov", "ipetrov@gmail.com", accountService.GetAccount("Ivanka", "ivanka123")));
-            users.Add(new User("admin", "admin", "admin@gmail.com", accountService.GetAccount("username", "password")));
+            List<User> users = new List<User>();
+            _context.OpenConnection();
+            string query = "SELECT * FROM User";
+            MySqlCommand cmd = new MySqlCommand(query, _context.GetConnection());
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                User user = new User();
+                user.UserId = int.Parse(dataReader["UserId"] + "");
+                user.FirstName = dataReader["FirstName"] + "";
+                user.LastName = dataReader["LastName"] + "";
+                user.Email = dataReader["Email"] + "";
+                user.AccountId = int.Parse(dataReader["AccountId"] + "");
+                user.Money = decimal.Parse(dataReader["Money"] + "");
+                user.StockCapacity = int.Parse(dataReader["StockCapacity"] + "");
+                users.Add(user);
+            }
+            dataReader.Close();
+            _context.CloseConnection();
+
+            return users;
         }
 
-        public User CreateUser(string firstName, string lastName, string email, string username, string password)
+        public User Create(string firstName, string lastName, string email, int accountId)
         {
-            users.Add(new User(firstName, lastName, email, accountService.CreateAccount(username, password)));
-            return users.Find(a => a.Account.Username.Equals(username));
+            string query = $"INSERT INTO User (FirstName, LastName, Email, AccountId, Money, StockCapacity) VALUES ('{firstName}', '{lastName}', '{email}', {accountId}, {10000}, {100})";
+
+            if (_context.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, _context.GetConnection());
+
+                cmd.ExecuteNonQuery();
+
+                _context.CloseConnection();
+            }
+            return Get(email);
         }
 
-        public User GetUser(string username)
+        public User Get(string email)
         {
-            return users.Find(u => u.Account.Username.Equals(username));
-        }
-       
-        public User GetUser(Account account)
-        {
-            return users.Find(u => u.Account.Equals(account));
+            User user = GetAll().Find(u => u.Email.Equals(email));
+            return user;
         }
 
-        public bool IsSuccessfulCreationOfUser(string username)
+        public User GetByUserId(int userId)
         {
-            return users.Find(a => a.Account.Username.Equals(username)) != null;
+            User user = GetAll().Find(u => u.UserId.Equals(userId));
+            return user;
+        }
+
+        public User Get(int accountId)
+        {
+            User user = GetAll().Find(u => u.AccountId.Equals(accountId));
+            return user;
+        }
+
+        public void Delete(int accountId)
+        {
+            string query = $"DELETE FROM User WHERE AccountId={accountId}";
+
+            if (_context.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, _context.GetConnection());
+                cmd.ExecuteNonQuery();
+                _context.CloseConnection();
+            }
+        }
+
+        public void Update(string email, User user)
+        {
+            string query = $"UPDATE User SET firstName={user.FirstName}, lastName={user.LastName}, {user.Email} WHERE email={email}";
+
+            if (_context.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = _context.GetConnection();
+
+                cmd.ExecuteNonQuery();
+
+                _context.CloseConnection();
+            }
+        }
+
+        public bool IsSuccessfulCreationOfUser(string email)
+        {
+            if (GetAll().Find(u=>u.Email.Equals(email)) != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

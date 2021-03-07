@@ -17,5 +17,7 @@ namespace WallStreet.Services.ProfileServices
         {
             profileRepository.SaveProfilePicture(path, pictureBox, user);
         }
+
+
     }
 }

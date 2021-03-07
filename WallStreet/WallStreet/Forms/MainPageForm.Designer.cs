@@ -54,18 +54,19 @@
             // btnStockMarket
             // 
             this.btnStockMarket.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStockMarket.BackColor = System.Drawing.Color.LawnGreen;
+            this.btnStockMarket.BackColor = System.Drawing.Color.YellowGreen;
             this.btnStockMarket.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnStockMarket.FlatAppearance.BorderColor = System.Drawing.Color.Goldenrod;
             this.btnStockMarket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStockMarket.Font = new System.Drawing.Font("Nirmala UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockMarket.ForeColor = System.Drawing.Color.Black;
+            this.btnStockMarket.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.btnStockMarket.Location = new System.Drawing.Point(310, 12);
             this.btnStockMarket.Name = "btnStockMarket";
             this.btnStockMarket.Size = new System.Drawing.Size(158, 108);
             this.btnStockMarket.TabIndex = 1;
             this.btnStockMarket.Text = "Stock Market";
             this.btnStockMarket.UseVisualStyleBackColor = false;
+            this.btnStockMarket.Click += new System.EventHandler(this.btnStockMarket_Click);
             // 
             // btnRanking
             // 

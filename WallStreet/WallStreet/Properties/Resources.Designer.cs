@@ -59,5 +59,14 @@ namespace WallStreet.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string wall_street_accounts {
+            get {
+                return ResourceManager.GetString("wall_street_accounts", resourceCulture);
+            }
+        }
     }
 }

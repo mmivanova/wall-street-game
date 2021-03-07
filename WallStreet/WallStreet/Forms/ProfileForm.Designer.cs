@@ -53,80 +53,80 @@
             // lblGeneralInfo
             // 
             this.lblGeneralInfo.AutoSize = true;
-            this.lblGeneralInfo.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGeneralInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGeneralInfo.Location = new System.Drawing.Point(12, 9);
             this.lblGeneralInfo.Name = "lblGeneralInfo";
-            this.lblGeneralInfo.Size = new System.Drawing.Size(247, 30);
+            this.lblGeneralInfo.Size = new System.Drawing.Size(266, 32);
             this.lblGeneralInfo.TabIndex = 16;
             this.lblGeneralInfo.Text = "General information";
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFirstName.Location = new System.Drawing.Point(17, 64);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(97, 22);
+            this.lblFirstName.Size = new System.Drawing.Size(103, 25);
             this.lblFirstName.TabIndex = 1;
             this.lblFirstName.Text = "First name";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLastName.Location = new System.Drawing.Point(17, 108);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(94, 22);
+            this.lblLastName.Size = new System.Drawing.Size(103, 25);
             this.lblLastName.TabIndex = 2;
             this.lblLastName.Text = "Last name";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.Location = new System.Drawing.Point(17, 148);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(67, 22);
+            this.lblEmail.Size = new System.Drawing.Size(67, 25);
             this.lblEmail.TabIndex = 3;
             this.lblEmail.Text = "E-mail";
             // 
             // lblWealth
             // 
             this.lblWealth.AutoSize = true;
-            this.lblWealth.Font = new System.Drawing.Font("Modern No. 20", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWealth.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWealth.Location = new System.Drawing.Point(13, 251);
             this.lblWealth.Name = "lblWealth";
-            this.lblWealth.Size = new System.Drawing.Size(98, 30);
+            this.lblWealth.Size = new System.Drawing.Size(104, 32);
             this.lblWealth.TabIndex = 4;
             this.lblWealth.Text = "Wealth";
             // 
             // lblMoney
             // 
             this.lblMoney.AutoSize = true;
-            this.lblMoney.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoney.Location = new System.Drawing.Point(17, 295);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(64, 22);
+            this.lblMoney.Size = new System.Drawing.Size(72, 25);
             this.lblMoney.TabIndex = 5;
             this.lblMoney.Text = "Money";
             // 
             // lblStockCapacity
             // 
             this.lblStockCapacity.AutoSize = true;
-            this.lblStockCapacity.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStockCapacity.Location = new System.Drawing.Point(17, 339);
             this.lblStockCapacity.Name = "lblStockCapacity";
-            this.lblStockCapacity.Size = new System.Drawing.Size(125, 22);
+            this.lblStockCapacity.Size = new System.Drawing.Size(139, 25);
             this.lblStockCapacity.TabIndex = 6;
             this.lblStockCapacity.Text = "Stock capacity";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(625, 197);
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(626, 209);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(90, 22);
+            this.lblUsername.Size = new System.Drawing.Size(102, 25);
             this.lblUsername.TabIndex = 7;
             this.lblUsername.Text = "Username";
             // 
@@ -135,10 +135,10 @@
             this.tbFirstName.BackColor = System.Drawing.Color.Honeydew;
             this.tbFirstName.Enabled = false;
             this.tbFirstName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFirstName.Location = new System.Drawing.Point(120, 61);
+            this.tbFirstName.Location = new System.Drawing.Point(146, 63);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.ReadOnly = true;
-            this.tbFirstName.Size = new System.Drawing.Size(183, 30);
+            this.tbFirstName.Size = new System.Drawing.Size(235, 30);
             this.tbFirstName.TabIndex = 9;
             // 
             // tbLastName
@@ -146,10 +146,10 @@
             this.tbLastName.BackColor = System.Drawing.Color.Honeydew;
             this.tbLastName.Enabled = false;
             this.tbLastName.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLastName.Location = new System.Drawing.Point(120, 103);
+            this.tbLastName.Location = new System.Drawing.Point(146, 103);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.ReadOnly = true;
-            this.tbLastName.Size = new System.Drawing.Size(183, 30);
+            this.tbLastName.Size = new System.Drawing.Size(235, 30);
             this.tbLastName.TabIndex = 10;
             this.tbLastName.TabStop = false;
             // 
@@ -158,10 +158,10 @@
             this.tbEmail.BackColor = System.Drawing.Color.Honeydew;
             this.tbEmail.Enabled = false;
             this.tbEmail.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEmail.Location = new System.Drawing.Point(91, 143);
+            this.tbEmail.Location = new System.Drawing.Point(146, 143);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.ReadOnly = true;
-            this.tbEmail.Size = new System.Drawing.Size(183, 30);
+            this.tbEmail.Size = new System.Drawing.Size(235, 30);
             this.tbEmail.TabIndex = 11;
             this.tbEmail.TabStop = false;
             // 
@@ -170,10 +170,10 @@
             this.tbMoney.BackColor = System.Drawing.Color.Honeydew;
             this.tbMoney.Enabled = false;
             this.tbMoney.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMoney.Location = new System.Drawing.Point(91, 292);
+            this.tbMoney.Location = new System.Drawing.Point(146, 290);
             this.tbMoney.Name = "tbMoney";
             this.tbMoney.ReadOnly = true;
-            this.tbMoney.Size = new System.Drawing.Size(183, 30);
+            this.tbMoney.Size = new System.Drawing.Size(235, 30);
             this.tbMoney.TabIndex = 12;
             this.tbMoney.TabStop = false;
             // 
@@ -182,10 +182,10 @@
             this.tbStockCapacity.BackColor = System.Drawing.Color.Honeydew;
             this.tbStockCapacity.Enabled = false;
             this.tbStockCapacity.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbStockCapacity.Location = new System.Drawing.Point(146, 334);
+            this.tbStockCapacity.Location = new System.Drawing.Point(173, 334);
             this.tbStockCapacity.Name = "tbStockCapacity";
             this.tbStockCapacity.ReadOnly = true;
-            this.tbStockCapacity.Size = new System.Drawing.Size(183, 30);
+            this.tbStockCapacity.Size = new System.Drawing.Size(208, 30);
             this.tbStockCapacity.TabIndex = 13;
             this.tbStockCapacity.TabStop = false;
             // 
@@ -215,6 +215,7 @@
             this.btnSettings.TabIndex = 15;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // pbProfilePicture
             // 

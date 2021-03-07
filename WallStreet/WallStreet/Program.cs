@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WallStreet.Forms;
+using WallStreet.Repositories.AccountRepositories;
 
 namespace WallStreet
 {
@@ -12,9 +13,12 @@ namespace WallStreet
         [STAThread]
         static void Main()
         {
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new WelcomeForm());
+            
         }
     }
 }

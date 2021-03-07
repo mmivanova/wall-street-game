@@ -9,30 +9,51 @@ namespace WallStreet.Services.AccountServices
         private readonly IAccountRepository accountRepository = new AccountRepository();
         public bool IsExistingAccount(string username, string password)
         {
-            Account findAccount = accountRepository.GetAccount(username, password);
+            Account findAccount = accountRepository.Get(username);
             bool isExistingUser = findAccount != null;
 
             return isExistingUser;
         }
+
 
         public bool IsExistingAccount(Account account)
         {
             return IsExistingAccount(account.Username, account.Password);
         }
 
-        public Account GetAccount(string username, string pasword)
+        public Account GetAccount(string username)
         {
-            return accountRepository.GetAccount(username, pasword);
+            return accountRepository.Get(username);
         }
 
-        public Account CreateAccount(string username, string pasword)
+        public string GetUsername(int accountId)
         {
-            return accountRepository.CreateAccount(username, pasword);
+            return accountRepository.GetUsername(accountId);
+        }
+
+        public Account GetAccount(int accountId)
+        {
+            return accountRepository.Get(accountId);
+        }
+
+        public Account CreateAccount(string username, string password)
+        {
+            return accountRepository.Create(username, password);
         }
 
         public List<Account> GetAll()
         {
             return accountRepository.GetAll();
+        }
+
+        public void Delete(int accountId)
+        {
+            accountRepository.Delete(accountId);
+        }
+
+        public void Update(int accountId, Account account)
+        {
+            accountRepository.Update(accountId, account);
         }
     }
 }

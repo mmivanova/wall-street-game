@@ -6,9 +6,13 @@ namespace WallStreet.Services.AccountServices
     interface IAccountService
     {
         bool IsExistingAccount(string username, string password);
-        bool IsExistingAccount(Account user);
-        Account GetAccount(string username, string pasword);
-        Account CreateAccount(string username, string pasword);
+        bool IsExistingAccount(Account account);
+        Account GetAccount(string username);
+        string GetUsername(int accountId);
+        Account GetAccount(int accountId);
+        Account CreateAccount(string username, string password);
         List<Account> GetAll();
+        void Delete(int accountId);
+        void Update(int accountId, Account account);
     }
 }

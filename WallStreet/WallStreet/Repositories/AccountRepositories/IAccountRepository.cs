@@ -5,9 +5,12 @@ namespace WallStreet.Repositories.AccountRepositories
 {
     interface IAccountRepository
     {
-        Account CreateAccount(string username, string password);
+        Account Create(string username, string password);
         List<Account> GetAll();
-        Account GetAccount(string username, string password);
-        // User GetUser(Account account);
+        string GetUsername(int accountId);
+        Account Get(string username);
+        Account Get(int accountId);
+        void Delete(int accountId);
+        void Update(int accountId, Account account);
     }
 }

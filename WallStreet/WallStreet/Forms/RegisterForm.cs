@@ -1,8 +1,11 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Forms;
+using WallStreet.Models;
+using WallStreet.Repositories.AccountRepositories;
+using WallStreet.Services.AccountServices;
 using WallStreet.Services.UserServices;
 using WallStreet.Validators.RegistrationValidators;
+using static System.String;
 
 namespace WallStreet.Forms
 {
@@ -14,6 +17,7 @@ namespace WallStreet.Forms
         private bool usernameTextBoxFirstClick = true;
         private bool passwordTextBoxFirstClick = true;
         private readonly IUserService userService = new UserService();
+        private readonly IAccountService accountService = new AccountService();
         private readonly IRegistrationValidator registrationValidator = new RegistrationValidator();
 
         public RegisterForm()
@@ -34,7 +38,7 @@ namespace WallStreet.Forms
         {
             if (firstNameTextBoxFirstClick)
             {
-                tbFirstName.Text = String.Empty;
+                tbFirstName.Text = Empty;
                 firstNameTextBoxFirstClick = false;
             }
         }
@@ -43,7 +47,7 @@ namespace WallStreet.Forms
         {
             if (lastNameTextBoxFirstClick)
             {
-                tbLastName.Text = String.Empty;
+                tbLastName.Text = Empty;
                 lastNameTextBoxFirstClick = false;
             }
         }
@@ -52,7 +56,7 @@ namespace WallStreet.Forms
         {
             if (emailTextBoxFirstClick)
             {
-                tbEmail.Text = String.Empty;
+                tbEmail.Text = Empty;
                 emailTextBoxFirstClick = false;
             }
         }
@@ -61,7 +65,7 @@ namespace WallStreet.Forms
         {
             if (usernameTextBoxFirstClick)
             {
-                tbUsername.Text = String.Empty;
+                tbUsername.Text = Empty;
                 usernameTextBoxFirstClick = false;
             }
         }
@@ -70,7 +74,7 @@ namespace WallStreet.Forms
         {
             if (passwordTextBoxFirstClick)
             {
-                tbPassword.Text = String.Empty;
+                tbPassword.Text = Empty;
                 passwordTextBoxFirstClick = false;
             }
         }
@@ -82,9 +86,6 @@ namespace WallStreet.Forms
             string email = tbEmail.Text;
             string username = tbUsername.Text;
             string password = tbPassword.Text;
-
-
-            // TODO Finish this if statement
 
             if (!registrationValidator.IsValidFirstName(firstName))
             {
@@ -108,11 +109,11 @@ namespace WallStreet.Forms
             }
             else
             {
-                userService.CreateUser(firstName, lastName, email, username, password);
-
+                Account account = accountService.CreateAccount(username, password);
+                userService.Create(firstName, lastName, email, account.AccountId);
             }
 
-            if (userService.IsSuccessfulCreationOfUser(username))
+            if (userService.IsSuccessfulCreationOfUser(email))
             {
                 this.Hide();
                 var loginForm = new LoginForm();
@@ -124,5 +125,6 @@ namespace WallStreet.Forms
                 MessageBox.Show("Unsuccessful registration!");
             }
         }
+
     }
 }

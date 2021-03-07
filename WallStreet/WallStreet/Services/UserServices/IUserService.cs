@@ -1,12 +1,19 @@
-﻿using WallStreet.Models;
+﻿using System.Collections.Generic;
+using WallStreet.Models;
 
 namespace WallStreet.Services.UserServices
 {
     interface IUserService
     {
-        User CreateUser(string firstName, string lastName, string email, string username, string password);
+        User Create(string firstName, string lastName, string email, int accountId);
         bool IsSuccessfulCreationOfUser(string username);
-        User GetUser(string username);
-        User GetUser(Account account);
+        // User Get(string email);
+        User Get(int accountId);
+        List<User> GetAll();
+        User GetByUserId(int usesrId);
+
+        void Update(string email, User user);
+
+        void Delete(int accountId);
     }
 }

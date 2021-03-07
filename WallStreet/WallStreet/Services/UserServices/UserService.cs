@@ -1,4 +1,5 @@
-﻿using WallStreet.Models;
+﻿using System.Collections.Generic;
+using WallStreet.Models;
 using WallStreet.Repositories.UserRepositories;
 
 namespace WallStreet.Services.UserServices
@@ -7,24 +8,39 @@ namespace WallStreet.Services.UserServices
     {
         private readonly IUserRepository userRepository = new UserRepository();
 
-        public User CreateUser(string firstName, string lastName, string email, string username, string password)
+        public User Create(string firstName, string lastName, string email, int accountId)
         {
-            return userRepository.CreateUser(firstName, lastName, email, username, password);
+            return userRepository.Create(firstName, lastName, email, accountId);
         }
 
-        public User GetUser(string username)
+        public List<User> GetAll()
         {
-            return userRepository.GetUser(username);
+            return userRepository.GetAll();
         }
 
-        public User GetUser(Account account)
+        public User GetByUserId(int userId)
         {
-            return userRepository.GetUser(account);
+            return userRepository.GetByUserId(userId);
         }
 
-        public bool IsSuccessfulCreationOfUser(string username)
+        public User Get(int accountId)
         {
-            return userRepository.IsSuccessfulCreationOfUser(username);
+            return userRepository.Get(accountId);
+        }
+
+        public void Update(string email, User user)
+        {
+            userRepository.Update(email, user);
+        }
+
+        public void Delete(int accountId)
+        {
+            userRepository.Delete(accountId);
+        }
+
+        public bool IsSuccessfulCreationOfUser(string email)
+        {
+            return userRepository.IsSuccessfulCreationOfUser(email);
         }
     }
 }

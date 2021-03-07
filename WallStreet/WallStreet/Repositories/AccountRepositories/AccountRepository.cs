@@ -1,34 +1,92 @@
 ﻿using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 using WallStreet.Models;
-using WallStreet.Services.UserServices;
 
 namespace WallStreet.Repositories.AccountRepositories
 {
     class AccountRepository : IAccountRepository
     {
-        private static readonly List<Account> accounts = new List<Account>();
-        public AccountRepository()
-        {
-            accounts.Add(new Account("Ivancho", "ivan123"));
-            accounts.Add(new Account("MariaK", "mimi123"));
-            accounts.Add(new Account("Ivanka", "ivanka123"));
-            accounts.Add(new Account("username", "password"));
-        }
+        private readonly Database.DbContext context = new Database.DbContext();
 
         public List<Account> GetAll()
         {
+            List<Account> accounts = new List<Account>();
+            context.OpenConnection();
+            string query = "SELECT * FROM Account";
+            MySqlCommand cmd = new MySqlCommand(query, context.GetConnection());
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Account account = new Account();
+                account.AccountId = int.Parse(dataReader["AccountId"] + "");
+                account.Username = dataReader["Username"] + "";
+                account.Password = dataReader["Password"] + "";
+                accounts.Add(account);
+            }
+            dataReader.Close();
+            context.CloseConnection();
+
             return accounts;
         }
 
-        public Account GetAccount(string username, string password)
+        public Account Get(string username)
         {
-            return accounts.Find(a => a.Username.Equals(username) && a.Password.Equals(password));
+            Account account = GetAll().Find(a => a.Username.Equals(username));
+            return account;
+        }
+        public string GetUsername(int accountId)
+        {
+            Account account = GetAll().Find(u => u.AccountId.Equals(accountId));
+            string username = account.Username;
+            return username;
+        }
+        public Account Get(int accountId)
+        {
+            Account account = GetAll().Find(a => a.AccountId.Equals(accountId));
+            return account;
         }
 
-        public Account CreateAccount(string username, string password)
+        public void Delete(int accountId)
         {
-            accounts.Add(new Account(username, password));
-            return GetAccount(username, password);
+            string query = $"DELETE FROM Account WHERE AccountId={accountId}";
+
+            if (context.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, context.GetConnection());
+                cmd.ExecuteNonQuery();
+                context.CloseConnection();
+            }
+        }
+
+        public void Update(int accountId, Account account)
+        {
+            string query = $"UPDATE Account SET Username={account.Username}, password={account.Password} WHERE AccountId={accountId}";
+
+            if (context.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = context.GetConnection();
+
+                cmd.ExecuteNonQuery();
+
+                context.CloseConnection();
+            }
+        }
+
+        public Account Create(string username, string password)
+        {
+            string query = $"INSERT INTO Account (Username, Password) VALUES ('{username}', '{password}')";
+
+            if (context.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, context.GetConnection());
+
+                cmd.ExecuteNonQuery();
+
+                context.CloseConnection();
+            }
+            return Get(username);
         }
     }
 }

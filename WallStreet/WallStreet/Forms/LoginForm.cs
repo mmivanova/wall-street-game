@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WallStreet.Services.AccountServices;
+using static System.String;
 
 namespace WallStreet.Forms
 {
@@ -18,14 +19,14 @@ namespace WallStreet.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            var username = tbUsername.Text;
-            var password = tbPassword.Text;
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
             bool isExistingAccount = accountService.IsExistingAccount(username, password);
 
             if (isExistingAccount)
             {
                 this.Hide();
-                var mainPage = new MainPageForm(username);
+                var mainPage = new MainPageForm(accountService.GetAccount(username).AccountId);
                 mainPage.Closed += (s, args) => this.Close();
                 mainPage.Show();
             }
@@ -39,7 +40,7 @@ namespace WallStreet.Forms
         {
             if (usernameTextBoxFirstClick)
             {
-                tbUsername.Text = String.Empty;
+                tbUsername.Text = Empty;
                 usernameTextBoxFirstClick = false;
             }
         }
@@ -48,7 +49,7 @@ namespace WallStreet.Forms
         {
             if (passwordTextBoxFirstClick)
             {
-                tbPassword.Text = String.Empty;
+                tbPassword.Text = Empty;
                 passwordTextBoxFirstClick = false;
             }
         }

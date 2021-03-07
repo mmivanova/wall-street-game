@@ -1,32 +1,44 @@
 ﻿using System;
 using System.Windows.Forms;
 using WallStreet.Models;
+using WallStreet.Services.AccountServices;
 using WallStreet.Services.UserServices;
 
 namespace WallStreet.Forms
 {
     public partial class MainPageForm : Form
     {
-        private readonly IUserService userService = new UserService();
-        private readonly User user;
+        private readonly IAccountService accountService = new AccountService();
+        private readonly Account account;
        
-        public MainPageForm(string username)
+        public MainPageForm(int accountId)
         {
             InitializeComponent();
-            this.user = userService.GetUser(username);
+            this.account = accountService.GetAccount(accountId);
         }
 
         private void btnRanking_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var rankingForm = new RankingForm();
+            rankingForm.Closed += (s, args) => this.Close();
+            rankingForm.Show();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var accountForm = new ProfileForm(user);
-            accountForm.Closed += (s, args) => this.Close();
-            accountForm.Show();
+            var profileForm = new ProfileForm(account);
+            profileForm.Closed += (s, args) => this.Close();
+            profileForm.Show();
+        }
+
+        private void btnStockMarket_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var marketForm = new MarketForm(account);
+            marketForm.Closed += (s, args) => this.Close();
+            marketForm.Show();
         }
     }
 }
