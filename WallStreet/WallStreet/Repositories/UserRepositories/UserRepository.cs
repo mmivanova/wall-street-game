@@ -102,5 +102,6 @@ namespace WallStreet.Repositories.UserRepositories
             }
             return false;
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using WallStreet.Models;
 
@@ -19,7 +20,7 @@ namespace WallStreet.Repositories.ProfileRepositories
                 pictureBox.BackgroundImage = new Bitmap(path);
                 user.ProfilePicture = (Bitmap)pictureBox.BackgroundImage;
                 pictureBox.BackgroundImageLayout = ImageLayout.Zoom;
-                // File.Copy(lblImagePath.Text, Path.Combine(@"D:\uni-plovdiv\Programs\WallStreet\WallStreet\ProfilePictures", Path.GetFileName(lblImagePath.Text)), true);
+                File.Copy(path, Path.Combine(@"D:\uni-plovdiv\Programs\WallStreet\WallStreet\ProfilePictures", Path.GetFileName(path)), true);
             }
         }
     }

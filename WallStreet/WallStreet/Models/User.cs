@@ -11,6 +11,7 @@ namespace WallStreet.Models
         public int AccountId { get; set; }
         public decimal Money { get; set; }
         public int StockCapacity { get; set; }
+
         public Bitmap ProfilePicture { get; set; }
 
         public User()

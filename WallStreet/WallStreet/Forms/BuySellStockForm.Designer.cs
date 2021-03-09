@@ -37,6 +37,7 @@ namespace WallStreet.Forms
             this.tbCurrentMoney = new System.Windows.Forms.TextBox();
             this.lblDollarSign = new System.Windows.Forms.Label();
             this.btnBuySell = new System.Windows.Forms.Button();
+            this.btnBackToMarket = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAction
@@ -126,11 +127,26 @@ namespace WallStreet.Forms
             this.btnBuySell.UseVisualStyleBackColor = false;
             this.btnBuySell.Click += new System.EventHandler(this.btnBuySell_Click);
             // 
+            // btnBackToMarket
+            // 
+            this.btnBackToMarket.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnBackToMarket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBackToMarket.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackToMarket.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnBackToMarket.Location = new System.Drawing.Point(12, 242);
+            this.btnBackToMarket.Name = "btnBackToMarket";
+            this.btnBackToMarket.Size = new System.Drawing.Size(102, 45);
+            this.btnBackToMarket.TabIndex = 17;
+            this.btnBackToMarket.Text = "Back";
+            this.btnBackToMarket.UseVisualStyleBackColor = false;
+            this.btnBackToMarket.Click += new System.EventHandler(this.btnBackToMarket_Click);
+            // 
             // BuySellStockForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 299);
+            this.Controls.Add(this.btnBackToMarket);
             this.Controls.Add(this.btnBuySell);
             this.Controls.Add(this.lblDollarSign);
             this.Controls.Add(this.tbCurrentMoney);
@@ -156,5 +172,6 @@ namespace WallStreet.Forms
         private System.Windows.Forms.TextBox tbCurrentMoney;
         private System.Windows.Forms.Label lblDollarSign;
         private System.Windows.Forms.Button btnBuySell;
+        private System.Windows.Forms.Button btnBackToMarket;
     }
 }

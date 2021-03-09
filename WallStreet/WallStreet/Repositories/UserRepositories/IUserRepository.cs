@@ -13,6 +13,5 @@ namespace WallStreet.Repositories.UserRepositories
         User Get(int accountId);
         void Delete(int accountId);
         void Update(string email, User user);
-
     }
 }

@@ -38,7 +38,5 @@ namespace WallStreet.Repositories.StockRepositories
             return stock;
         }
 
-
-
     }
 }

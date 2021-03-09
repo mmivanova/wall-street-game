@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using WallStreet.Models;
 using WallStreet.Services.AccountServices;
-using WallStreet.Services.UserServices;
 
 namespace WallStreet.Forms
 {
@@ -20,7 +19,7 @@ namespace WallStreet.Forms
         private void btnRanking_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var rankingForm = new RankingForm();
+            var rankingForm = new RankingForm(account.AccountId);
             rankingForm.Closed += (s, args) => this.Close();
             rankingForm.Show();
         }

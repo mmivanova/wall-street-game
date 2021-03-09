@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 using WallStreet.Models;
 using WallStreet.Repositories.UserRepositories;
 
@@ -36,6 +37,31 @@ namespace WallStreet.Services.UserServices
         public void Delete(int accountId)
         {
             userRepository.Delete(accountId);
+        }
+
+        public Dictionary<string, int> GetStocksAndQuantityFromTransactions(List<Transaction> transactions)
+        {
+            Dictionary<string, int> stockQuantity = new Dictionary<string, int>();
+            foreach (var transaction in transactions)
+            {
+                if (stockQuantity.ContainsKey(transaction.Stock.Ticker))
+                {
+                    if (transaction.IsBought.Equals(true))
+                    {
+                        stockQuantity[transaction.Stock.Ticker] += transaction.Quantity;
+                    }
+                    else
+                    {
+                        stockQuantity[transaction.Stock.Ticker] -= transaction.Quantity;
+                    }
+                }
+                else
+                {
+                    stockQuantity.Add(transaction.Stock.Ticker, transaction.Quantity);
+                }
+            }
+
+            return stockQuantity;
         }
 
         public bool IsSuccessfulCreationOfUser(string email)

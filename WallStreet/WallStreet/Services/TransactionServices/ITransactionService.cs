@@ -11,6 +11,8 @@ namespace WallStreet.Services.TransactionServices
     {
         Transaction Get(int transactionId);
         List<Transaction> GetAll();
+        List<Transaction> GetTransactionsByUser(int userId);
+        Transaction GetByUser(int userId);
         void BuyStocks(int quantity, Stock stock, int userId);
         void SellStocks(int quantity, Stock stock, int userId);
     }

@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using WallStreet.Models;
+using WallStreet.Services.AccountServices;
 using WallStreet.Services.StockServices;
 using WallStreet.Services.TransactionServices;
 
@@ -14,6 +15,7 @@ namespace WallStreet.Forms
         private readonly Stock stock;
         private readonly ITransactionService transactionService = new TransactionService();
         private readonly IStockService stockService = new StockService();
+        private readonly IAccountService accountService = new AccountService();
 
         public BuySellStockForm(string action, User user, int stockId)
         {
@@ -50,7 +52,6 @@ namespace WallStreet.Forms
                 {
                     int amount = int.Parse(tbStocksToBuy.Text);
                     transactionService.BuyStocks(amount, stock, user.UserId);
-                    MessageBox.Show("You have successfully bought your stocks!");
                 }
                 catch
                 {
@@ -63,13 +64,20 @@ namespace WallStreet.Forms
                 {
                     int amount = int.Parse(tbStocksToBuy.Text);
                     transactionService.SellStocks(amount, stock, user.UserId);
-                    MessageBox.Show("You have successfully sold your stocks!");
                 }
                 catch
                 {
                     MessageBox.Show("Invalid input, try again!");
                 }
             }
+        }
+
+        private void btnBackToMarket_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var marketForm = new MarketForm(accountService.GetAccount(user.AccountId));
+            marketForm.Closed += (s, args) => this.Close();
+            marketForm.Show();
         }
     }
 }

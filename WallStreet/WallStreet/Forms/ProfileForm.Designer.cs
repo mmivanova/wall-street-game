@@ -47,6 +47,7 @@
             this.pbProfilePicture = new System.Windows.Forms.PictureBox();
             this.btnUpdateProfilePicture = new System.Windows.Forms.Button();
             this.lblImagePath = new System.Windows.Forms.Label();
+            this.btnMyStocks = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,12 +252,27 @@
             this.lblImagePath.TabIndex = 19;
             this.lblImagePath.Visible = false;
             // 
+            // btnMyStocks
+            // 
+            this.btnMyStocks.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnMyStocks.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMyStocks.Font = new System.Drawing.Font("Nirmala UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMyStocks.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnMyStocks.Location = new System.Drawing.Point(235, 394);
+            this.btnMyStocks.Name = "btnMyStocks";
+            this.btnMyStocks.Size = new System.Drawing.Size(146, 44);
+            this.btnMyStocks.TabIndex = 20;
+            this.btnMyStocks.Text = "My stocks";
+            this.btnMyStocks.UseVisualStyleBackColor = false;
+            this.btnMyStocks.Click += new System.EventHandler(this.btnMyStocks_Click);
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMyStocks);
             this.Controls.Add(this.lblImagePath);
             this.Controls.Add(this.btnUpdateProfilePicture);
             this.Controls.Add(this.pbProfilePicture);
@@ -303,5 +319,6 @@
         private System.Windows.Forms.PictureBox pbProfilePicture;
         private System.Windows.Forms.Button btnUpdateProfilePicture;
         private System.Windows.Forms.Label lblImagePath;
+        private System.Windows.Forms.Button btnMyStocks;
     }
 }

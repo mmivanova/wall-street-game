@@ -47,5 +47,13 @@ namespace WallStreet.Forms
             settingsPage.Show();
         }
 
+        private void btnMyStocks_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            var myStocksForm = new MyStocksForm(user.AccountId);
+            myStocksForm.Closed += (s, args) => this.Close();
+            myStocksForm.Show();
+        }
+
     }
 }

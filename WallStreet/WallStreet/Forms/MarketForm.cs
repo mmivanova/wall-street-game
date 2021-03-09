@@ -93,5 +93,13 @@ namespace WallStreet.Forms
             int stockId = 5;
             ButtonSellIsClicked(stockId);
         }
+
+        private void btnBackToMarket_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var mainPage = new MainPageForm(user.AccountId);
+            mainPage.Closed += (s, args) => this.Close();
+            mainPage.Show();
+        }
     }
 }

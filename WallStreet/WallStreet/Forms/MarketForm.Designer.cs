@@ -51,6 +51,7 @@ namespace WallStreet.Forms
             this.btnSellMicrosoft = new System.Windows.Forms.Button();
             this.btnSellNvidia = new System.Windows.Forms.Button();
             this.btnSellModerna = new System.Windows.Forms.Button();
+            this.btnBackToMarket = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTesla
@@ -330,11 +331,26 @@ namespace WallStreet.Forms
             this.btnSellModerna.UseVisualStyleBackColor = false;
             this.btnSellModerna.Click += new System.EventHandler(this.btnSellModerna_Click);
             // 
+            // btnBackToMarket
+            // 
+            this.btnBackToMarket.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnBackToMarket.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBackToMarket.Font = new System.Drawing.Font("Nirmala UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackToMarket.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.btnBackToMarket.Location = new System.Drawing.Point(12, 418);
+            this.btnBackToMarket.Name = "btnBackToMarket";
+            this.btnBackToMarket.Size = new System.Drawing.Size(102, 45);
+            this.btnBackToMarket.TabIndex = 25;
+            this.btnBackToMarket.Text = "Back";
+            this.btnBackToMarket.UseVisualStyleBackColor = false;
+            this.btnBackToMarket.Click += new System.EventHandler(this.btnBackToMarket_Click);
+            // 
             // MarketForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 475);
+            this.Controls.Add(this.btnBackToMarket);
             this.Controls.Add(this.btnSellModerna);
             this.Controls.Add(this.btnSellNvidia);
             this.Controls.Add(this.btnSellMicrosoft);
@@ -388,5 +404,6 @@ namespace WallStreet.Forms
         private System.Windows.Forms.Button btnSellMicrosoft;
         private System.Windows.Forms.Button btnSellNvidia;
         private System.Windows.Forms.Button btnSellModerna;
+        private System.Windows.Forms.Button btnBackToMarket;
     }
 }

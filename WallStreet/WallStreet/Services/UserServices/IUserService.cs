@@ -15,5 +15,6 @@ namespace WallStreet.Services.UserServices
         void Update(string email, User user);
 
         void Delete(int accountId);
+        Dictionary<string, int> GetStocksAndQuantityFromTransactions(List<Transaction> transactions);
     }
 }
